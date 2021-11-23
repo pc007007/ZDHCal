@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>afcCalMain</class>
+ <widget class="QWidget" name="afcCalMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>862</width>
+    <height>0</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*
+QPushButton {
+	border-radius: 0px;
+    color: white;
+	padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(0, 122, 204);
+}
+QPushButton:checked {
+    background-color: rgb(0, 122, 204);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+QPushButton:disabled {
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    color: grey;
+    border: 1px solid grey;
+}
+QPushButton:hover {
+    background-color: rgb(0, 122, 204);
+    color: white;
+}
+QPushButton:pressed {
+    background-color: rgb(0, 122, 204);
+}
+*/
+
+QPushButton {
+	border-radius: 0px;
+    color: white;
+	padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+}
+QPushButton:checked {
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+	border: 1px solid rgb(51,153,255);
+}
+QPushButton:disabled {
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    color: grey;
+    border: 1px solid white;
+}
+QPushButton:hover {
+    background-color: rgb(201,222,245);
+    color: black;
+}
+QPushButton:pressed {
+    background-color: rgb(0,122,204);
+	color:white
+}
+
+/*tablewidget 样式*/
+QTableView , QTableWidget{
+	selection-background-color: rgb(178,215,240);
+	background-color:white;/*整个表格的背景色，这里为白色*/
+	alternate-background-color: rgb(250, 250, 250);
+	border:0px solid #E0DDDC;/*边框为1像素，灰色*/
+	border-top:0px solid #E0DDDC;
+	border-bottom:0px solid #E0DDDC;
+	gridline-color:lightgray;/*这个是表格的格子线的颜色，为亮灰*/
+}
+/*这里是表格表头样式*/
+QHeaderView::section{
+	background-color:white;/*背景色 白色*/
+	border:0px solid #E0DDDC;/*先把边框宽度设为0，即隐藏所有表头边框*/
+	border-bottom:1px solid #E0DDDC;/*然后只显示下边框，因为上边框和左右边框是整个Table的边框，都显示会有2px的边框宽度*/
+	height:50px;/*表头高度*/
+}
+
+QTableView QTableCornerButton::section {
+	border:0px solid #E0DDDC;
+	background-color:white;
+	border-top:0px solid #E0DDDC;
+	border-left:0px solid #E0DDDC;
+	border-right:0px solid #E0DDDC;
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">QTabWidget {
+
+}
+QTabWidget::pane {
+	border:0px solid rgb(204,206,219);
+	background-color: rgb(255, 255, 255);
+}
+
+QTavWidget::tab-bar{
+	
+}
+QTabBar::tab{
+
+}
+QTabBar::tab:hover{
+
+}
+QTabBar::tab:selected{
+
+}
+</string>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::South</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_recent">
+      <attribute name="title">
+       <string>近期</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="o4Btn">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+          </font>
+         </property>
+         <property name="text">
+          <string>提资料数量</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="o2Btn">
+         <property name="text">
+          <string>输出1</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="9">
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="currentIndex">
+          <number>4</number>
+         </property>
+         <widget class="QWidget" name="o1Wdiget">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o1tableWidget"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o2Wdiget">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o2tableWidget"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o3Wdiget">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o3tableWidget"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o4Wdiget">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o4tableWidget"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o5Widget">
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o5tableWidget"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="o1Btn">
+         <property name="text">
+          <string>输入资料</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="o3Btn">
+         <property name="text">
+          <string>输出2</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>531</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="6" colspan="3">
+        <widget class="QPushButton" name="toExcelBtn">
+         <property name="styleSheet">
+          <string notr="true">padding:5px</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../resources.qrc">
+           <normaloff>:/resource/ExportToExcel_16x.svg</normaloff>:/resource/ExportToExcel_16x.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="o5Btn">
+         <property name="text">
+          <string>输出3</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_far">
+      <attribute name="title">
+       <string>远期</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="1" column="0" colspan="8">
+        <widget class="QStackedWidget" name="stackedWidget_2">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="currentIndex">
+          <number>4</number>
+         </property>
+         <widget class="QWidget" name="o1Wdiget_2">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o1tableWidget_2"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o2Wdiget_2">
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o2tableWidget_2"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o3Wdiget_2">
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o3tableWidget_2"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o4Wdiget_2">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o4tableWidget_2"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="o5Widget_2">
+          <layout class="QVBoxLayout" name="verticalLayout_19">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="o5tableWidget_2"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="o3Btn_2">
+         <property name="text">
+          <string>输出2</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="o1Btn_2">
+         <property name="text">
+          <string>输入资料</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="o4Btn_2">
+         <property name="text">
+          <string>提资料数量</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6" colspan="2">
+        <widget class="QPushButton" name="toExcelBtn_2">
+         <property name="styleSheet">
+          <string notr="true">padding:5px</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../resources.qrc">
+           <normaloff>:/resource/ExportToExcel_16x.svg</normaloff>:/resource/ExportToExcel_16x.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="o2Btn_2">
+         <property name="text">
+          <string>输出1</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>531</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="o5Btn_2">
+         <property name="text">
+          <string>输出3</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_figure">
+      <attribute name="title">
+       <string>自定义图表</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_4" columnstretch="1,6">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item row="0" column="1" rowspan="2">
+          <widget class="QFrame" name="frame_2">
+           <property name="styleSheet">
+            <string notr="true">QFrame#frame_2{
+	border:1px solid rgb(204,206,219);
+     background-color: transparent;
+     border-top: 10px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
+     border-left: 10px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
+     border-bottom: 10px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
+     border-right: 10px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_31">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_30"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="0" rowspan="2">
+          <widget class="QFrame" name="frame">
+           <property name="styleSheet">
+            <string notr="true">QFrame#frame{
+	border:1px solid rgb(204,206,219);
+     background-color: transparent;
+     border-top: 10px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
+     border-left: 10px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
+     border-bottom: 10px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
+     border-right: 10px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_29">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0" rowspan="2" colspan="2">
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <property name="leftMargin">
+                 <number>9</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>9</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>9</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>表格类型</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox">
+                  <item>
+                   <property name="text">
+                    <string>柱状图</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>平行分类图</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>饼图</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="0">
+               <widget class="QTabWidget" name="tabWidget_2">
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <property name="tabBarAutoHide">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="bar_tab">
+                 <attribute name="title">
+                  <string>bar</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_15">
+                  <property name="leftMargin">
+                   <number>9</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>x轴</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_16">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>y轴</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_17">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>模式</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="mode_combo_box">
+                    <item>
+                     <property name="text">
+                      <string>堆叠</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>组合</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="generate_bar_button">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	border:1px solid black;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>生成</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="parallel_tab">
+                 <attribute name="title">
+                  <string>parallel</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <property name="leftMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>9</number>
+                  </property>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_6">
+                      <property name="text">
+                       <string>维度</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_14">
+                      <property name="leftMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>5</number>
+                      </property>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_7">
+                      <property name="text">
+                       <string>归类颜色</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_18">
+                      <property name="leftMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QCheckBox" name="checkBox">
+                        <property name="text">
+                         <string>空</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="generate_parallel_button">
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border:1px solid black;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>生成</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pie_tab">
+                 <attribute name="title">
+                  <string>pie</string>
+                 </attribute>
+                 <layout class="QVBoxLayout" name="verticalLayout_27">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_26">
+                    <item>
+                     <widget class="QLabel" name="label_13">
+                      <property name="text">
+                       <string>值</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_28">
+                      <property name="leftMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>5</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton">
+                        <property name="text">
+                         <string>进站检票机</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_2">
+                        <property name="text">
+                         <string>出站检票机</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_3">
+                        <property name="text">
+                         <string>双向检票机</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_4">
+                        <property name="text">
+                         <string>双向检票机
+(宽)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_5">
+                        <property name="text">
+                         <string>出站检票机
+(总可用量)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_6">
+                        <property name="text">
+                         <string>自动售票机</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="generate_pie_button">
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+	border:1px solid black;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>生成</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_5">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>创新性探索</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_20">
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="styleSheet">
+          <string notr="true">QFrame#frame_3{
+	border:1px solid rgb(204,206,219);
+     background-color: transparent;
+     border-top: 10px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
+     border-left: 10px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
+     border-bottom: 10px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
+     border-right: 10px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_22">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="exp_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>生成报告</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_21"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../../../../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

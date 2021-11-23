@@ -1,0 +1,57 @@
+<RCC>
+  <qresource prefix="/">
+    <file>resource/ExpandDown_16x.svg</file>
+    <file>resource/CurrentContextArrow_16x.svg</file>
+    <file>resource/FolderClosed_16x.svg</file>
+    <file>resource/handler-h.svg</file>
+    <file>resource/DetailDataView_16x.svg</file>
+    <file>resource/handler.svg</file>
+    <file>resource/EDI-logo.ico</file>
+    <file>resource/AFCFile_16x.svg</file>
+    <file>resource/Copy_16x.svg</file>
+    <file>resource/DeTableRow_16x.svg</file>
+    <file>resource/Gallery_16x-o.svg</file>
+    <file>resource/Gallery_16x.svg</file>
+    <file>resource/NewFileCollection_16x.svg</file>
+    <file>resource/OpenFolder_16x-o.svg</file>
+    <file>resource/ScrollbarArrowsDownRight_noHalo1E_16x - blue.svg</file>
+    <file>resource/GlyphRight_1ENoHalo_16x - blue.svg</file>
+    <file>resource/GlyphRight_1ENoHalo_16x.svg</file>
+    <file>resource/ScrollbarArrowsDownRight_noHalo1E_16x.svg</file>
+    <file>resource/Pushpin_16x.svg</file>
+    <file>resource/PushpinUnpin_16x.svg</file>
+    <file>resource/EDI-logo.svg</file>
+    <file>resource/ChromeRestore_16x.svg</file>
+    <file>resource/ChromeMaximize_16x.svg</file>
+    <file>resource/ChromeMinimize_16x.svg</file>
+    <file>resource/ChromeClose_16x.svg</file>
+    <file>resource/EDI-logo32.jpg</file>
+    <file>resource/DocumentOutline_16x.svg</file>
+    <file>resource/EDI-logo.jpg</file>
+    <file>resource/loading.gif</file>
+    <file>resource/giphy-1.gif</file>
+    <file>resource/ExpandRight_16x.svg</file>
+    <file>resource/AddImmediateWindow_16x.svg</file>
+    <file>resource/Refresh_16x.svg</file>
+    <file>resource/ExportToExcel_16x.svg</file>
+    <file>resource/NewFile_16x.svg</file>
+    <file>resource/OpenFolder_16x.svg</file>
+    <file>resource/Undock_16x.svg</file>
+    <file>resource/Save_16x.svg</file>
+    <file>resource/Close_WhiteNoHalo_12x_16x.svg</file>
+    <file>resource/Run_16x.svg</file>
+    <file>resource/Close_White_16x.svg</file>
+    <file>resource/Close_White_16x.png</file>
+    <file>resource/Close_NoHalo_12x_16x.svg</file>
+    <file>resource/Close_NoHalo_12x_16x.png</file>
+    <file>resource/Close_WhiteNoHalo_12x_16x.png</file>
+    <file>resource/Close_8x_16x.png</file>
+    <file>resource/Close_12x_16x.png</file>
+    <file>resource/NewFile_16x.png</file>
+    <file>resource/OpenFolder_16x.png</file>
+    <file>resource/Save_16x.png</file>
+    <file>resource/Run_16x.png</file>
+    <file>resource/Close_16x.png</file>
+    <file>resource/Undock_16x.png</file>
+  </qresource>
+</RCC>
