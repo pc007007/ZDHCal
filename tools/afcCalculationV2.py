@@ -336,7 +336,6 @@ class AFC_project:
 
         final_output = [input1, output1, output2, output3, output4]
 
-        print("计算完成")
         return final_output
 
 

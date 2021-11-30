@@ -11,22 +11,22 @@ import tools.afcCalculationV2 as afcCalculation
 import decimal
 import os
 import plotly_express as px
-import dtale
+# import dtale
 
 
-class Report(QObject):
-    finished = Signal(str)
-
-    def __init__(self, manual_df, id):
-        super(Report, self).__init__()
-        self.manual_df = manual_df
-        self.id = id
-
-    def run(self):
-        self.d = dtale.show(self.manual_df)
-        print("已完成服务器启动")
-        url = dtale.get_instance(self.id).main_url()
-        self.finished.emit(url)
+# class Report(QObject):
+#     finished = Signal(str)
+#
+#     def __init__(self, manual_df, id):
+#         super(Report, self).__init__()
+#         self.manual_df = manual_df
+#         self.id = id
+#
+#     def run(self):
+#         self.d = dtale.show(self.manual_df)
+#         print("已完成服务器启动")
+#         url = dtale.get_instance(self.id).main_url()
+#         self.finished.emit(url)
 
 
 class WebEngineView(QWebEngineView):
@@ -114,6 +114,7 @@ class afc_content(QWidget):
         self.ui.tabWidget_2.setCurrentIndex(0)
         self.ui.tabWidget_2.tabBar().hide()
 
+        self.ui.tabWidget.removeTab(3)
 
         self.initSlot()
 
@@ -139,7 +140,7 @@ class afc_content(QWidget):
         self.ui.generate_pie_button.clicked.connect(self.slot_generate_pie_figure)
         self.ui.comboBox.currentIndexChanged.connect(self.slot_select_fig_type)
 
-        self.ui.exp_button.clicked.connect(self.slot_generate_exp_report)
+        # self.ui.exp_button.clicked.connect(self.slot_generate_exp_report)
 
     def initialLoadHtml(self, df, name):
         self.initialFigGenerator(df, name)
@@ -296,27 +297,27 @@ class afc_content(QWidget):
         self.web_view_01.load(QUrl(html_path_01))
         self.web_view_02.load(QUrl(html_path_02))
 
-    @Slot()
-    def slot_generate_exp_report(self):
-        self.ui.exp_button.setText("报告生成中...")
-        self.ui.exp_button.setDisabled(1)
-
-        pixmap_gif = QtGui.QMovie(u":/resource/loading.gif")
-        loading_label = QLabel()
-        loading_label.setAlignment(Qt.AlignCenter)
-        loading_label.setMovie(pixmap_gif)
-        pixmap_gif.start()
-        self.ui.verticalLayout_21.addWidget(loading_label)
-
-        self.thread = QThread()
-        self.report = Report(self.manual_df_recent, self.id)
-        self.report.moveToThread(self.thread)
-        self.thread.started.connect(self.report.run)
-        self.report.finished.connect(lambda: self.ui.exp_button.deleteLater())
-        self.report.finished.connect(lambda: self.ui.verticalLayout_21.addWidget(self.web_view_exp))
-        self.report.finished.connect(lambda: loading_label.deleteLater())
-        self.report.finished.connect(lambda url: self.web_view_exp.load(QUrl(url)))
-        self.thread.start()
+    # @Slot()
+    # def slot_generate_exp_report(self):
+    #     self.ui.exp_button.setText("报告生成中...")
+    #     self.ui.exp_button.setDisabled(1)
+    #
+    #     pixmap_gif = QtGui.QMovie(u":/resource/loading.gif")
+    #     loading_label = QLabel()
+    #     loading_label.setAlignment(Qt.AlignCenter)
+    #     loading_label.setMovie(pixmap_gif)
+    #     pixmap_gif.start()
+    #     self.ui.verticalLayout_21.addWidget(loading_label)
+    #
+    #     self.thread = QThread()
+    #     self.report = Report(self.manual_df_recent, self.id)
+    #     self.report.moveToThread(self.thread)
+    #     self.thread.started.connect(self.report.run)
+    #     self.report.finished.connect(lambda: self.ui.exp_button.deleteLater())
+    #     self.report.finished.connect(lambda: self.ui.verticalLayout_21.addWidget(self.web_view_exp))
+    #     self.report.finished.connect(lambda: loading_label.deleteLater())
+    #     self.report.finished.connect(lambda url: self.web_view_exp.load(QUrl(url)))
+    #     self.thread.start()
 
         # d = dtale.show(self.manual_df_recent, port=self.port, force=True)
         # self.web_view_exp.load(QUrl(d._url))

@@ -2,6 +2,7 @@ import os
 import json
 import time
 
+import psutil
 from PySide6.QtGui import QIcon, QPixmap, QCursor, QFontMetrics, QMouseEvent
 from PySide6.QtWidgets import QMainWindow, QWidget, QFileDialog, QTextEdit, QLabel, QVBoxLayout, QPushButton, \
     QSizePolicy, QSpacerItem, QHBoxLayout, QApplication, QToolButton, QDockWidget, QToolBar, QWidgetAction
@@ -400,6 +401,12 @@ class MainWindow(QMainWindow):
         self.commdLine("图表已生成", showtime=True)
         content.initialFigGenerator(manual_df_recent, manual_df_far)
 
+        info = psutil.virtual_memory()
+        self.commdLine(u'当前进程的内存使用: %.4f GB' % (psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024))
+        self.commdLine(u"当前电脑总内存:%.4f GB" % (info.total / 1024 / 1024 / 1024))
+        self.commdLine(f"当前使用的总内存占比: {info.percent}%")
+        self.commdLine(f"cpu个数: {psutil.cpu_count()}")
+
         return table_recent, table_far, manual_df_recent, manual_df_far
 
     def create_new_project(self, file_path, file_name):
@@ -465,7 +472,6 @@ class MainWindow(QMainWindow):
         """
         filepath = self.curTabFilePath
         self.save_afc_project(filepath)
-        print("保存项目")
 
     def saveProjectOnCLose(self, filepath):
         self.save_afc_project(filepath)
